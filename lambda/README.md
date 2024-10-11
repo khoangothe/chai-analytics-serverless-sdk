@@ -1,0 +1,9 @@
+- [x] SQS and Lambda to handle bulk
+- [ ] Rewrite Chai Client to handle Async Request
+- [ ] Huggingface Model Crawler:
+  - [ ] Crawl 7b-70b Models
+  - [ ] Extract Model Config
+  - [ ] Extract Model Name
+- [ ] Chai Model Crawler:
+ - [ ] Crawl Top Submission
+ - [ ] Crawl Latest new Submission

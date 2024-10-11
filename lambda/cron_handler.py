@@ -1,10 +1,16 @@
-import datetime
+import json
+import os
+import boto3
+
+sqs = boto3.client("sqs")
+QUEUE_URL = os.environ["QUEUE_URL"]
 
 
 def handler(event, context):
-    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"Cron job ran at {current_time}")
-    return {
-        "statusCode": 200,
-        "body": f"Cron job executed successfully at {current_time}",
-    }
+    # Your logic to generate the list
+    my_list = ["item1", "item2", "item3"]
+
+    # Send the list to table
+    sqs.send_message(QueueUrl=QUEUE_URL, MessageBody=json.dumps(my_list))
+
+    return {"statusCode": 200, "body": json.dumps("List sent to SQS successfully")}
